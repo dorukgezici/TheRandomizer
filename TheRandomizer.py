@@ -14,18 +14,6 @@ def run():
     else:
         clear_output_labels()
         person1_label["text"] = "You need to add at least 1 people."
-    # n = len(Data.people)
-    # if n >= 2:
-    #     a = random.randrange(n)
-    #     b = random.randrange(n)
-    #     while a == b:
-    #         b = random.randrange(n)
-    #     person1_label["text"] = Data.people[a]
-    #     arrow_label["text"] = "|\nV"
-    #     person2_label["text"] = Data.people[b]
-    # else:
-    #     clear_output_labels()
-    #     person1_label["text"] = "You need to add at least 2 people."
 
 def run_event(event):
     run()
@@ -40,8 +28,14 @@ def add():
 def add_event(event):
     add()
 
-def add_team():
-    Data.people.extend(["Doruk Gezici", "Anıl Esen", "Zeynep Tek", "Ahmet Cüce", "Özgur Can Milletsever", "Halit Erdoğan", "İrem Işık", "Levent Güner", "Umut Avin", "Ekin Çelebi", "Pelin Gümüşlü", "Defne Bayrak", "Orçun Uysal", "Dilara Bozyılan", "Erdem Özkur"])
+def add_it_team():
+    Data.people.extend(["Doruk Gezici", "Ata Öz", "Betül Derici", "Buğra Turhan", "Can Ekkazan", "Hikmet Tüfekçi", "İdil Ekin Akpınar", "Irmak Ömür", "Işılay Tuncer", "Levent Güner", "Maki", "Mehmet Altuner", "Naim Tirali", "Özge Belgül", "Özge Bozkurt", "Özgür Can Milletsever"])
+    Data.people.sort()
+    for person in Data.people:
+        people_listbox.insert("end", person)
+
+def add_iot_team():
+    Data.people.extend(["Doruk Gezici", "Anıl Esen", "Zeynep Tek", "Ahmet Cüce", "Özgur Can Milletsever", "Halit Erdoğan", "İrem Işık", "Levent Güner", "Umut Avin", "Ekin Çelebi", "Pelin Gümüşlü", "Defne Bayrak", "Orçun Uysal", "Dilara Bozyılan", "Dilara Ertuğrul"])
     Data.people.sort()
     for person in Data.people:
         people_listbox.insert("end", person)
@@ -74,7 +68,7 @@ root.title("EESTEC LC Istanbul")
 root.geometry("640x480+300+100")
 root.resizable(width=0, height=0)
 
-header = tk.Label(root, text="IoT Line Fair '17 Team - Osman the Randomizer", padx=10, pady=10)
+header = tk.Label(root, text="IT Team - Osman the Randomizer", padx=10, pady=10)
 header.pack()
 
 left_frame = tk.Frame(root)
@@ -104,8 +98,11 @@ add_person_button.pack(side="left")
 remove_person_button = tk.Button(list_buttons, text="REMOVE", command=remove)
 remove_person_button.pack(side="left")
 
-add_team_button = tk.Button(list_buttons, text="ADD WHOLE TEAM", command=add_team)
-add_team_button.pack(side="right")
+add_iot_team_button = tk.Button(list_buttons, text="ADD IOT TEAM", command=add_iot_team)
+add_iot_team_button.pack(side="right")
+
+add_it_team_button = tk.Button(list_buttons, text="ADD IT TEAM", command=add_it_team)
+add_it_team_button.pack(side="right")
 
 output_frame = tk.Frame(right_frame)
 output_frame.pack(pady=80)
